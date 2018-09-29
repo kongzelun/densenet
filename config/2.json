@@ -1,7 +1,6 @@
 {
   "dataset_path": "data/fashion-mnist_train.csv",
-  "pkl_path": "pkl/cel-fashion-mnist.pkl",
-  "log_path": "log-cel-fashion-mnist.txt",
+  "path": "2",
   "tensor_view": [
     -1,
     28,

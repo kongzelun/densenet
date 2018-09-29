@@ -7,6 +7,7 @@
       <w>optim</w>
       <w>relu</w>
       <w>testset</w>
+      <w>trainloader</w>
       <w>trainset</w>
     </words>
   </dictionary>

@@ -49,8 +49,9 @@ def train(config):
     cel = torch.nn.CrossEntropyLoss()
     sgd = optim.SGD(net.parameters(), lr=config.learning_rate, momentum=0.9)
 
-    if os.path.exists(config.pkl_path):
-        state_dict = torch.load(config.pkl_path)
+    pkl_path = os.path.join(config.path, "{}.pkl".format(config.path))
+    if os.path.exists(pkl_path):
+        state_dict = torch.load(pkl_path)
         try:
             net.load_state_dict(state_dict)
             logger.info("Load state from file %s.", config.pkl_path)
@@ -77,7 +78,7 @@ def train(config):
 
             logger.debug("[%d, %d] %7.4f", epoch + 1, i + 1, loss.item())
 
-        torch.save(net.state_dict(), config.pkl_path)
+        torch.save(net.state_dict(), pkl_path)
 
         # test
         if (epoch + 1) % config.test_frequency == 0:
@@ -109,27 +110,16 @@ def main():
 
     args = parser.parse_args()
 
-    if not os.path.exists("pkl"):
-        os.mkdir("pkl")
+    if not os.path.exists(args.config):
+        raise RuntimeError("Config path not found!")
 
-    if not os.path.exists("config"):
-        os.mkdir("config")
-
-    with open("config/{}.json".format(args.config)) as config_file:
+    with open("{}/config.json".format(args.config)) as config_file:
         config = models.Config(**json.load(config_file))
 
     if args.epoch:
         config.epoch_number = args.epoch
 
-    # try:
-    #     config_file = open("config/{}".format(args.config))
-    #     config = models.Config(**json.load(config_file))
-    # except FileNotFoundError:
-    #     print("Can't find config file.")
-    # finally:
-    #     config_file.close()
-
-    setup_logger(level=logging.DEBUG, filename=config.log_path)
+    setup_logger(level=logging.DEBUG, filename=os.path.join(config.path, "{}.log".format(config.path)))
     train(config)
 
 

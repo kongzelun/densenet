@@ -1,7 +1,6 @@
 {
   "dataset_path": "data/cifar10_train.csv",
-  "pkl_path": "pkl/cel.pkl",
-  "log_path": "log-cel.txt",
+  "path": "1"
   "tensor_view": [
     -1,
     32,

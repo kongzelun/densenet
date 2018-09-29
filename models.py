@@ -7,8 +7,8 @@ import dense_net
 
 class Config(object):
     dataset_path = None
-    pkl_path = None
-    log_path = None
+    path = None
+
     tensor_view = None
     in_channels = None
     layers = None
