@@ -8,7 +8,7 @@
     32
   ],
   "in_channels": 3,
-  "layers": 6,
+  "layers": 10,
   "learning_rate": 0.001,
   "train_test_split": 6000,
   "epoch_number": 100,

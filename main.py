@@ -87,7 +87,7 @@ def train(config):
             labels_predicted = []
 
             for j, (feature, label) in enumerate(testloader):
-                _, predicted_label = net(feature.to(net.device)).max(dim=0)
+                _, predicted_label = net(feature.to(net.device)).max(dim=1)
 
                 labels_true.append(label)
                 labels_predicted.append(predicted_label)
