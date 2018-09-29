@@ -3,7 +3,6 @@
   "pkl_path": "pkl/cel.pkl",
   "log_path": "log-cel.txt",
   "tensor_view": [
-    10,
     -1,
     32,
     32
@@ -11,7 +10,7 @@
   "in_channels": 3,
   "layers": 6,
   "learning_rate": 0.001,
-  "train_test_split": 6000,
+  "train_test_split": 500,
   "epoch_number": 100,
   "test_frequency": 5
 }

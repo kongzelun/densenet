@@ -80,7 +80,7 @@ class DenseNet(nn.Module):
 
         self.fc1 = nn.Linear(channels * 4 * 4, 1000)
         self.fc2 = nn.Linear(1000, 100)
-        self.fc3 = nn.Linear(100, 5)
+        self.fc3 = nn.Linear(100, 10)
 
         self.channels = channels
 

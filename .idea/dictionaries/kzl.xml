@@ -1,6 +1,10 @@
 <component name="ProjectDictionaryState">
   <dictionary name="kzl">
     <words>
+      <w>conv</w>
+      <w>dataset</w>
+      <w>optim</w>
+      <w>relu</w>
       <w>testset</w>
       <w>trainset</w>
     </words>
