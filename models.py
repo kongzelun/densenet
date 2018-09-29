@@ -94,7 +94,7 @@ class DenseNet(nn.Module):
         out = self.block3(out)
         out = self.relu(self.bn1(out))
         out = self.pooling(out)
-        out = self.fc1(out.view(1, -1))
-        out = self.fc2(out)
+        out = self.relu(self.fc1(out.view(1, -1)))
+        out = self.relu(self.fc2(out))
         out = self.fc3(out)
         return out
