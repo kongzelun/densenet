@@ -38,7 +38,7 @@ def train(config):
     np.random.shuffle(dataset[config.train_test_split:])
 
     trainset = models.DataSet(dataset[:config.train_test_split], config.tensor_view)
-    trainloader = DataLoader(dataset=trainset, batch_size=1, shuffle=True, num_workers=4)
+    trainloader = DataLoader(dataset=trainset, batch_size=config.tensor_view[0], shuffle=True, num_workers=4)
 
     testset = models.DataSet(dataset[config.train_test_split:], config.tensor_view)
     testloader = DataLoader(dataset=testset, batch_size=1, shuffle=False, num_workers=0)
@@ -75,7 +75,7 @@ def train(config):
 
             running_loss += loss.item()
 
-            logger.debug("[%d, %d] %7.4f, %7.4f", epoch + 1, i + 1, loss.item())
+            logger.debug("[%d, %d] %7.4f", epoch + 1, i + 1, loss.item())
 
         torch.save(net.state_dict(), config.pkl_path)
 
