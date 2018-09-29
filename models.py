@@ -76,9 +76,11 @@ class DenseNet(nn.Module):
         # global average pooling and classifier
         self.bn1 = nn.BatchNorm2d(channels)
         self.relu = nn.ReLU(inplace=True)
-        self.pooling = nn.AvgPool2d(kernel_size=2)
+        # self.pooling = nn.AvgPool2d(kernel_size=2)
+        self.pooling = nn.AvgPool2d(kernel_size=1)
 
-        self.fc1 = nn.Linear(channels * 4 * 4, 1000)
+        # self.fc1 = nn.Linear(channels * 4 * 4, 1000)
+        self.fc1 = nn.Linear(channels * 7 * 7, 1000)
         self.fc2 = nn.Linear(1000, 100)
         self.fc3 = nn.Linear(100, 10)
 
